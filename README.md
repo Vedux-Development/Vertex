@@ -5,5 +5,5 @@ This will be a advanced discord bot focused around Discord.js v12 and v13 once i
 Not released!
 
 # Maintainers 
-[Ducksquaddd](https://github.com/Ducksquaddd)
+[Ducksquaddd](https://github.com/Ducksquaddd)<br>
 [bqini](https://github.com/bqini)
