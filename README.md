@@ -10,7 +10,7 @@ Beta dropping soon!
 3. Advanced moderation
 4. Updated version of [Veconomy](https://github.com/Vedux-Development/Discord-Economy-Bot) but also built in MongoDB
 5. Fully customizeable spam filter
-6. Fully customizeable link filter
+6. Fully customizeable link filter <br>
 And much more features that we dont wish to leak!
 
 # Maintainers 
