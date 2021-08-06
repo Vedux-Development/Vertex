@@ -2,7 +2,7 @@
 This will be a advanced discord bot focused around Discord.js v12 and v13 once it releases!
 
 # Status
-Beta dropping soon!
+Alpha dropping soon!
 
 # Features
 1. Log channel
