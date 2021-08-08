@@ -34,10 +34,10 @@ module.exports.run = async (client, message, args) => {
       message.channel.send(`You cant ban yourself ${emojis.Error1}`);
       return;
     }
-    if (!message.guild.member(target).bannable)
+    if (!targett.bannable)
       return message.reply({
         content:
-          "You can't ban this user because you the bot has not sufficient permissions!!",
+          "You can't ban this user because the bot has not sufficient permissions!!",
         allowedMentions: { repliedUser: false },
       });
 

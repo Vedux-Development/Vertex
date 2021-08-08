@@ -24,7 +24,7 @@ module.exports.run = async (client, message, args) => {
     embed.addFields(
       {
         name: "Basic Utilities",
-        value: "`prefix`, `setlog`, `modules`",
+        value: "`prefix`, `setlog`, `modules`, `invite`, `support`",
       },
       {
         name: "Moderation",
