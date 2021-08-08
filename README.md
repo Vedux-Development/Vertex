@@ -1,6 +1,6 @@
 # Vertex
 
-This is an advanced discord bot focused around Discord.js v13!
+This is an advanced discord bot focused around Discord.js v13!<br>
 To get help join the [Discord sevrer](https://discord.gg/EcdPApY8Kd)
 
 # Version
