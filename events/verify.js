@@ -2,7 +2,7 @@ const GuildSettings = require("../models/settings");
 const { client, config } = require("../index");
 const spamSettings = require("../models/verifyMsgSchema");
 
-client.on("messageCreate ", async (message) => {
+client.on("messageCreate", async (message) => {
   if (message.author.bot) return;
 
   let r = message.member;
