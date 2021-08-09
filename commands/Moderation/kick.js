@@ -59,7 +59,7 @@ module.exports.run = async (client, message, args) => {
           .setTitle("kick")
           .setColor(config.Maincolor)
           .addField("**Username**", Username.tag)
-          .addField("**Day**", `${month}/${day}/${year}`)
+          .addField("**Data**", `${month}/${day}/${year}`)
           .setFooter(`User ID: ${target}`);
         client.channels.cache.get(channel).send({ embeds: [logMessage] });
       }
