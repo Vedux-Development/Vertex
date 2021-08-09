@@ -4,7 +4,7 @@ const config = require("../../config.json");
 const GuildSettings = require("../../models/settings");
 
 module.exports.run = async (client, message, args) => {
-  if (!message.message.member.permissions.has(Permissions.FLAGS.MANAGE_GUILD))
+  if (!message.member.permissions.has(Permissions.FLAGS.MANAGE_GUILD))
     return message.reply({
       content: "You must have the `MANAGE_GUILD` perm to use this command!",
       allowedMentions: { repliedUser: false },

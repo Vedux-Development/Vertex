@@ -35,7 +35,7 @@ module.exports.run = async (client, message, args) => {
 };
 
 module.exports.data = {
-  name: "setjoinrole",
+  name: "setwelcomerole",
   aliases: ["joinrole"],
   description: "This will give users a role when they join your server.",
   params: "joinrole @role",

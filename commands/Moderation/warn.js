@@ -116,4 +116,5 @@ module.exports.data = {
   description:
     "Using this command you can punish users without banning or kicking them!",
   params: "warn @user reason",
+  type: "Moderation",
 };
