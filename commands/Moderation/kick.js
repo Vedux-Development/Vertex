@@ -15,18 +15,19 @@ module.exports.run = async (client, message, args) => {
       allowedMentions: { repliedUser: false },
     });
   let targett = message.mentions.members.first();
-  let target = targett.id;
-  let Username = await client.users.fetch(target);
 
   if (!targett) {
     message.channel.send(
       `You must mention a user you wish to kick ${emojis.Warning}`
     );
   }
+  let target = targett.id;
+  let Username = await client.users.fetch(target);
   if (target === message.author.id) {
     message.channel.send(`You cant kick yourself ${emojis.Error1}`);
     return;
   }
+
   if (!targett.kickable)
     return message.reply({
       content:
