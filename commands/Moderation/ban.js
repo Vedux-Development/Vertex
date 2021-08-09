@@ -14,7 +14,7 @@ module.exports.run = async (client, message, args) => {
       content: "You need the `BAN_MEMBERS` perm to ban people!",
       allowedMentions: { repliedUser: false },
     });
-
+    let targett = message.mentions.members.first();
 
   const reason = args.slice(1).join(" ");
   if (!targett) {
