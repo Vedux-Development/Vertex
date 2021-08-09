@@ -5,7 +5,7 @@ To get help join the [Discord sevrer](https://discord.gg/EcdPApY8Kd)
 
 # Version
 
-Alpha | 1.0.0
+Alpha | 1.0.1
 
 # Modules
 
