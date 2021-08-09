@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "discord.js": "^13.0.0",
+    "discord.js": "^13.0.1",
     "fs-extra": "^10.0.0",
     "mongoose": "^5.13.4",
     "path": "^0.12.7"
@@ -14,7 +14,6 @@
     "url": "https://github.com/Vedux-Development/Vertex",
     "issues": "https://github.com/Vedux-Development/Vertex/issues"
   },
-  "devDependencies": {},
   "scripts": {
     "start": "node index.js",
     "devStart": "nodemon index.js"

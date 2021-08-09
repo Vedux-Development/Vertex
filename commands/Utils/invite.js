@@ -7,8 +7,7 @@ module.exports.run = async (client, message, args) => {
   const embed = new MessageEmbed()
     .setTitle("Invite")
     .setColor(config.Maincolor)
-    .setDescription(
-      `[Invite Vertex by clicking here](https://discord.com/api/oauth2/authorize?client_id=869106671627145227&permissions=8&scope=bot)`
+    .setDescription(`[Invite Vertex by clicking here](https://discord.com/api/oauth2/authorize?client_id=869106671627145227&permissions=8&scope=bot)`
     )
     .setFooter(config.Footer);
   message.channel.send({ embeds: [embed] });

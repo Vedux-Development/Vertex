@@ -14,13 +14,14 @@ module.exports.run = async (client, message, args) => {
       content: "You need the `KICK_MEMBERS` perm to kick people!",
       allowedMentions: { repliedUser: false },
     });
-  let targett = message.mentions.members.first();
-
+  let targett = await message.mentions.members.first();
   if (!targett) {
     message.channel.send(
       `You must mention a user you wish to kick ${emojis.Warning}`
     );
+    return;
   }
+  console.log(targett.tag);
   let target = targett.id;
   let Username = await client.users.fetch(target);
   if (target === message.author.id) {

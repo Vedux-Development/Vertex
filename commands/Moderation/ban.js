@@ -14,13 +14,14 @@ module.exports.run = async (client, message, args) => {
       content: "You need the `BAN_MEMBERS` perm to ban people!",
       allowedMentions: { repliedUser: false },
     });
-    let targett = message.mentions.members.first();
+  let targett = message.mentions.members.first();
 
   const reason = args.slice(1).join(" ");
   if (!targett) {
     message.channel.send(
       `You must mention a user you wish to ban ${emojis.Warning}`
     );
+    return;
   }
   let target = targett.id;
   let Username = await client.users.fetch(target);
