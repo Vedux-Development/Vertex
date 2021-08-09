@@ -1,4 +1,3 @@
 node_modules/
 archive/
 *package-lock.json*
-*config.json*
