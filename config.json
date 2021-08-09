@@ -1,12 +1,12 @@
 {
-  "prefix": "Prefix",
+  "prefix": "v!",
   "Maincolor": "#B836d9",
   "Errorcolor": "#D21B1B",
-  "Footer": "https://github.com/Vedux-Development/Vertex",
-  "Footer2": "https://github.com/Vedux-Development/Vertex",
-  "mongodbUrl": "MONGO DB",
-  "token": "BOT_TOKEN",
-  "id": "BOT_ID",
+  "Footer": "Vertex | Vedux development",
+  "Footer2": "Hosted by Delk hosting",
+  "mongodbUrl": "mongodb+srv://Yer:Testing12@cluster0.x2vsq.mongodb.net/appdb",
+  "token": "ODczMTU5MTQ4MTc3NjIxMDAy.YQ0W0w.HY6rZTM66B8j-J7rCd3op1if7-o",
+  "id": "869106671627145227",
 
   "developers": ["816058457219792966", "862672559546826753"]
 }
