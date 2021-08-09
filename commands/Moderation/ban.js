@@ -11,7 +11,7 @@ module.exports.run = async (client, message, args) => {
 
   if (!message.member.permissions.has(Permissions.FLAGS.BAN_MEMBERS))
     return message.reply({
-      content: "You need the `BAN_MEMBERS` perm to ban people!",
+      content: "You need the `BAN_MEMBERS` permission to ban people!",
       allowedMentions: { repliedUser: false },
     });
     let targett = message.mentions.members.first();
