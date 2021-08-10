@@ -1,23 +1,14 @@
 {
   "name": "vertex",
-  "version": "1.0.1-alpha",
-  "description": "",
-  "main": "index.js",
+  "packageManager": "yarn@3.0.0",
   "dependencies": {
     "discord.js": "^13.0.1",
     "fs-extra": "^10.0.0",
-    "mongoose": "^5.13.4",
-    "path": "^0.12.7"
+    "mongoose": "^5.13.6"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Vedux-Development/Vertex",
-    "issues": "https://github.com/Vedux-Development/Vertex/issues"
-  },
-  "scripts": {
-    "start": "node index.js",
-    "devStart": "nodemon index.js"
-  },
-  "author": "",
-  "license": "ISC"
+  "version": "1.1.0-alpha",
+  "main": "index.js",
+  "repository": "https://github.com/Vedux-Development/Vertex.git",
+  "author": "Vedux",
+  "license": "MIT"
 }

@@ -10,13 +10,12 @@ module.exports.run = async (client, message, args) => {
       content: "You must have the `MANAGE_GUILD` perm to use this command!",
       allowedMentions: { repliedUser: false },
     });
-  message.channel.send("The modules command is currently disabled");
   let module = args[0];
   let act = args[1];
 
   if (!module)
     return message.channel.send(
-      "Please add what type of module you would like to enable/disable\n`spam-protection`\n`basic-mod`"
+      "Please add what type of module you would like to enable/disable\n`spam-protection`"
     );
   if (!act)
     return message.channel.send(
@@ -104,7 +103,10 @@ module.exports.run = async (client, message, args) => {
         message.channel.send({ embeds: [successSpam] });
       }
     } else if (act === "edit") {
-      message.channel.send("This feature is still in the works");
+      message.channel.send(
+        "This feature is still in the works and will most likely be premium!\nBasic configs\n`Max messages: 5`\n`Timer: 5 Seconds`\n`Reset timer: 2.5 Seconds`"
+      );
+
       return;
     } else
       return message.channel.send(

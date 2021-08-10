@@ -12,7 +12,7 @@ Open your terminal and run `git clone https://github.com/Vedux-Development/Verte
 
 ## Step 2
 
-Install the npm packages by running the command `npm install`
+Install the npm packages by running the command `npm install` or `yarn install`
 
 ## Step 3
 

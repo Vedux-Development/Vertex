@@ -1,6 +1,6 @@
 # Vertex
 
-This is an advanced discord bot focused around Discord.js v13!<br>
+Vertex is a advanced moderation Discord bot!<br>
 To get help join the [Discord sevrer](https://discord.gg/EcdPApY8Kd)
 
 # Version
@@ -11,7 +11,7 @@ Alpha | 1.0.1
 
 Vertex allows you to enable/disabled specific modules that this bot supports <br>The modules are listed below
 
-- Not out yet
+- Spam protection
 
 # Installing
 
@@ -19,7 +19,11 @@ If you would like to install this project on your own machine vist the instalati
 
 # Contributing
 
-Please read CONTRIBUTING.md before you submit any PRs
+Please read [CONTRIBUTNG.md](/contributing.md/) before you submit any PRs
+
+# Change log
+
+[Click here to view the change log](/changelog.md/)
 
 # Maintainers
 
