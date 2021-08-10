@@ -44,6 +44,7 @@ client.on("messageCreate", async (message) => {
             role = await message.guild.roles.create({
               name: "Muted",
               reason: "Created role to mute users",
+              position: 1,
             });
             perms(role.id);
             message.member.roles.add(role);
@@ -53,6 +54,7 @@ client.on("messageCreate", async (message) => {
             });
           } else {
             perms(role);
+            role.setPosition(1);
             message.member.roles.add(role);
             message.reply({
               content: "You have been muted for spamming",
