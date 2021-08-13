@@ -25,3 +25,9 @@ You can start the bot by running `nodemon index.js` or `node index.js`.
 # Complete
 
 If you are going to install the bot, it is greatly appreaciated if you give credits to [Ducksquaddd](https://github.com/Ducksquaddd) and [bqini](https://github.com/bqini)
+
+# Hosting?
+
+## Delk
+
+[Delk](https://delk.cf) offers fast and reliable hosting for your discord bot.<br>Join the [Discord server](https://discord.gg/qk85y6H6PK)

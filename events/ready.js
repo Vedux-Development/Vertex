@@ -2,7 +2,7 @@ const { version } = require("../package.json");
 const { client } = require("../index");
 
 client.on("ready", async () => {
-  console.log("online");
+  console.log("Bot online");
   setInterval(() => {
     const statuses = [
       `Version: ${version}`,

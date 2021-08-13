@@ -2,7 +2,7 @@ const GuildSettings = require("../models/settings");
 const Spamsettings = require("../models/spamSchema");
 const { client, config } = require("../index");
 
-/* Vertex's spam filter V1 is made by Anson the Developer */
+/* Vertex's spam filter V1 is (mostley) made by Anson the Developer */
 /* https://youtu.be/xzMiszeTEiI */
 
 const usersMap = new Map();

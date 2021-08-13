@@ -47,7 +47,7 @@ module.exports.run = async (client, message, args) => {
           .setTitle("Spam")
           .setColor(config.Maincolor)
           .setDescription(
-            `Your server is now protected by Vertex's spam module!\nYou change the configs on this module by running ${prefix.prefix}module spam-protection edit`
+            `Your server is now protected by Vertex's spam module!\nYou change the configs on this module by running ${prefix.prefix}module spam-protection edit\nFor the bot to acctully mute people please give it a high role`
           )
           .setFooter(config.Footer);
         message.channel.send({ embeds: [successSpam] });
