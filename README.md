@@ -28,4 +28,3 @@ Please read [CONTRIBUTNG.md](/contributing.md/) before you submit any PRs
 # Maintainers
 
 [Ducksquaddd](https://github.com/Ducksquaddd)- Discord - Ducksquaddd#6969<br>
-[bqini](https://github.com/bqini)
