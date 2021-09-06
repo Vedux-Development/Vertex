@@ -20,4 +20,4 @@ Vertex allows you to enable/disabled specific modules that this bot supports <br
 
 # Maintainers
 
-[Ducksquaddd](https://github.com/Ducksquaddd) - Discord - Ducksquaddd#6969<br>
+[Ducksquaddd](https://github.com/Ducksquaddd)- Discord - Ducksquaddd#6969<br>
