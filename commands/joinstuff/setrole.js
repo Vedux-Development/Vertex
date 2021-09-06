@@ -4,7 +4,7 @@ const config = require("../../config.json");
 const GuildSettings = require("../../models/settings");
 
 module.exports.run = async (client, message, args) => {
-  if (!message.member.hasPermission("MANAGE_GUILD"))
+  if (!message.member.permissions.has(Permissions.FLAGS.BAN_MEMBERS))
     return message.reply({
       content: "You must have the `MANAGE_GUILD` perm to use this command!",
       allowedMentions: { repliedUser: false },
@@ -24,7 +24,7 @@ module.exports.run = async (client, message, args) => {
           .setTitle("On join role")
           .setColor(config.Maincolor)
           .setDescription(
-            `**${addingRole.name}** is now the role that users will recieve when they join this server!`
+            `**${addingRole}** is now the role that users will recieve when they join this server!`
           )
           .setFooter(config.Footer);
         message.channel.send({ embeds: [newLog] });

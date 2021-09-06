@@ -52,7 +52,7 @@ module.exports.run = async (client, message, args) => {
     var successwarn = new MessageEmbed()
       .setTitle("Warn")
       .setColor(config.Maincolor)
-      .setDescription(`Warned ${Username.username}!`)
+      .setDescription(`Warned ${Username.tag}!`)
       .setFooter(config.Footer);
     message.channel.send({ embeds: [successwarn] });
     var sendtarget = new MessageEmbed()
@@ -98,13 +98,12 @@ module.exports.run = async (client, message, args) => {
   if (data2) {
     if (data2.logchannel) {
       var sendlog = new MessageEmbed()
-        .setTitle("Warning")
         .setColor(config.Errorcolor)
+        .addField("**Moderation Type**", "Warning")
         .addField(`**User**`, Username.username)
         .addField(`**Reason**`, reason)
         .addField(`**Moderator**`, message.author.username)
-        .addField(`**Date**`, `${month}/${day}/${year}`)
-        .setFooter(target);
+        .setTimestamp();
       client.channels.cache.get(data2.logchannel).send({ embeds: [sendlog] });
     }
   }

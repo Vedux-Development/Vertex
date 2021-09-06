@@ -2,78 +2,98 @@ const emojis = require("../../emoji.json");
 const { MessageEmbed, Permissions } = require("discord.js");
 const config = require("../../config.json");
 const GuildSettings = require("../../models/settings");
+const punishments = require("../../models/ModSchema");
 
 module.exports.run = async (client, message, args) => {
   var dateObj = new Date();
   var month = dateObj.getUTCMonth() + 1; //months from 1-12
   var day = dateObj.getUTCDate();
   var year = dateObj.getUTCFullYear();
-
   if (!message.member.permissions.has(Permissions.FLAGS.KICK_MEMBERS))
     return message.reply({
-      content: "You need the `KICK_MEMBERS` perm to kick people!",
-      allowedMentions: { repliedUser: false },
-    });
-  let targett = await message.mentions.members.first();
-  if (!targett) {
-    message.channel.send(
-      `You must mention a user you wish to kick ${emojis.Warning}`
-    );
-    return;
-  }
-  console.log(targett.tag);
-  let target = targett.id;
-  let Username = await client.users.fetch(target);
-  if (target === message.author.id) {
-    message.channel.send(`You cant kick yourself ${emojis.Error1}`);
-    return;
-  }
-
-  if (!targett.kickable)
-    return message.reply({
       content:
-        "You can't kick this user because the bot has not sufficient permissions!!",
+        "You must have the `KICK_MEMBERS` permission to use this command!",
       allowedMentions: { repliedUser: false },
     });
+  let mem = await message.mentions.members.first();
+  let data = await GuildSettings.findOne({
+    gid: message.guild.id,
+  });
+  if (!mem)
+    return message.channel.send(
+      "Please mention the person you would like to kick."
+    );
+  let reason = args.slice(1).join(" ");
+  if (!reason) reason = "No reason";
+  let Username = await client.users.fetch(mem.id);
+  if (message.author.id === mem.id)
+    return message.channel.send("Why would you want to kick yourself?");
+  if (!mem.kickable)
+    return message.channel.send(
+      "I do not have the permissions to kick this user."
+    );
+  const banembed = new MessageEmbed()
+    .setTitle("Kicked")
+    .setColor(config.Maincolor)
+    .addFields(
+      {
+        name: "**Server**",
+        value: `${message.guild.name}`,
+      },
+      {
+        name: "**Reason**",
+        value: `${reason}`,
+      },
+      {
+        name: "**Moderator**",
+        value: `${message.author.username}`,
+      }
+    );
+  await client.users.cache.get(mem.id).send({ embeds: [banembed] });
+  yer();
+  let msg = new MessageEmbed()
+    .setTitle("Success")
+    .setColor(config.Maincolor)
+    .setDescription(`${Username.username} has been kicked!`)
+    .setFooter(config.Footer);
+  message.channel.send({ embeds: [msg] });
+  await mem.kick({ reason: reason });
 
-  async function kickUser() {
-    const kickMessage = new MessageEmbed()
-      .setTitle("kicked")
-      .setColor(config.Errorcolor)
-      .addField("**Server**", message.guild.name)
-      .setFooter(config.Footer);
-    client.users.cache.get(target).send({ embeds: [kickMessage] });
-
-    const kickTrue = new MessageEmbed()
-      .setTitle("Success")
-      .setColor(config.Maincolor)
-      .setDescription(`${Username.username} has been kicked!`)
-      .setFooter(config.Footer);
-    message.channel.send({ embeds: [kickTrue] });
-
-    targett.kick();
-  }
-  GuildSettings.findOne({ gid: message.guild.id }, (err, data) => {
+  async function yer() {
     if (data) {
       if (data.logchannel) {
-        let channel = data.logchannel;
-        const logMessage = new MessageEmbed()
-          .setTitle("kick")
+        const yes = new MessageEmbed()
           .setColor(config.Maincolor)
-          .addField("**Username**", Username.tag)
-          .addField("**Data**", `${month}/${day}/${year}`)
-          .setFooter(`User ID: ${target}`);
-        client.channels.cache.get(channel).send({ embeds: [logMessage] });
+          .setTimestamp()
+          .setFooter(`Victim's id: ${mem.id}`)
+          .addFields(
+            {
+              name: "**Moderation Type**",
+              value: "Kick",
+            },
+            {
+              name: "**Victim**",
+              value: Username.username,
+            },
+            {
+              name: "**Punisher**",
+              value: message.author.username,
+            },
+            {
+              name: "**Reason**",
+              value: reason,
+            }
+          );
+        client.channels.cache.get(data.logchannel).send({ embeds: [yes] });
       }
     }
-  });
-  kickUser();
+  }
 };
 
 module.exports.data = {
   name: "kick",
-  aliases: ["elim", "test"],
-  description: "A command that allows you to kick a users.",
+  aliases: [""],
+  description: "Kick a bad user!",
   params: "kick @user reason",
   type: "Moderation",
 };

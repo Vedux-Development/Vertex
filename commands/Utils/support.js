@@ -1,20 +1,31 @@
-const { MessageEmbed, Permissions } = require("discord.js");
+const {
+  MessageEmbed,
+  Permissions,
+  MessageActionRow,
+  MessageButton,
+} = require("discord.js");
 const emojis = require("../../emoji.json");
 const config = require("../../config.json");
 const GuildSettings = require("../../models/settings");
 
 module.exports.run = async (client, message, args) => {
+  const row = new MessageActionRow().addComponents(
+    new MessageButton()
+      .setLabel("Server")
+      .setStyle("LINK")
+      .setURL("https://discord.gg/nesgSBV2wF")
+  );
   const embed = new MessageEmbed()
-    .setTitle("Support server")
+    .setTitle("Server")
     .setColor(config.Maincolor)
-    .setDescription(`[Join the support server](https://discord.gg/EcdPApY8Kd)`)
+    .setDescription(`Come join the Vedux server to get help with Vertex`)
     .setFooter(config.Footer);
-  message.channel.send({ embeds: [embed] });
+  message.channel.send({ embeds: [embed], components: [row] });
 };
 module.exports.data = {
   name: "support",
-  aliases: ["server"],
-  description: "This command can get you the Vertex bot support server.",
+  aliases: [],
+  description: "Get the Vedux server link.",
   params: "support",
   type: "Basic utilities",
 };

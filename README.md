@@ -1,11 +1,16 @@
 # Vertex
 
-Vertex is a advanced moderation Discord bot!<br>
+Vertex is an advanced Discord bot that can help you manage your Discord server<br>
 To get help join the [Discord sevrer](https://discord.gg/EcdPApY8Kd)
+
+# Future of Vertex
+
+Due to Discords choices with their api I (Ducksquaddd) will stop working on Vertex. Discord is trying to force developers to switch to slash commands by making the message intent privileged.<br>
+I get that I can switch to slash commands. However the bot still reads messages for things such as the spam filter. I work on Vertex in my free time and for free I dont want to/feel like rewriting vertex<br>for the soon to come api changes. I have published all the code that I have been working on for the version one update that was supposed to be released. If you do decide to use it.
 
 # Version
 
-Alpha | 1.1.0
+No version as version 1.0.0 was not finished
 
 # Modules
 
@@ -13,19 +18,6 @@ Vertex allows you to enable/disabled specific modules that this bot supports <br
 
 - Spam protection
 
-# Installing
-
-If you would like to install this project on your own machine vist the instalation guide [Here](/installing/)
-
-# Contributing
-
-Please read [CONTRIBUTNG.md](/contributing.md/) before you submit any PRs
-
-# Change log
-
-[Click here to view the change log](/changelog.md/)
-
 # Maintainers
 
-[Ducksquaddd](https://github.com/Ducksquaddd)- Discord - Ducksquaddd#6969<br>
-[bqini](https://github.com/bqini)
+[Ducksquaddd](https://github.com/Ducksquaddd) - Discord - Ducksquaddd#6969<br>

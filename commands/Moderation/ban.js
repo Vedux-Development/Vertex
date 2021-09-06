@@ -2,87 +2,101 @@ const emojis = require("../../emoji.json");
 const { MessageEmbed, Permissions } = require("discord.js");
 const config = require("../../config.json");
 const GuildSettings = require("../../models/settings");
+const punishments = require("../../models/ModSchema");
 
 module.exports.run = async (client, message, args) => {
   var dateObj = new Date();
   var month = dateObj.getUTCMonth() + 1; //months from 1-12
   var day = dateObj.getUTCDate();
   var year = dateObj.getUTCFullYear();
-
   if (!message.member.permissions.has(Permissions.FLAGS.BAN_MEMBERS))
     return message.reply({
-      content: "You need the `BAN_MEMBERS` permission to ban people!",
+      content:
+        "You must have the `BAN_MEMBERS` permission to use this command!",
       allowedMentions: { repliedUser: false },
     });
-  let targett = message.mentions.members.first();
-
-  const reason = args.slice(1).join(" ");
-  if (!targett) {
-    message.channel.send(
-      `You must mention a user you wish to ban ${emojis.Warning}`
+  let mem = await message.mentions.members.first();
+  let data = await GuildSettings.findOne({
+    gid: message.guild.id,
+  });
+  if (!mem)
+    return message.channel.send(
+      "Please mention the person you would like to banish."
     );
-    return;
-  }
-  let target = targett.id;
-  let Username = await client.users.fetch(target);
-  if (!reason) {
-    message.channel.send(
-      `For secruity reasons you must add a reason ${emojis.Error1}`
+  let reason = args.slice(1).join(" ");
+  if (!reason)
+    return message.channel.send(
+      "Please provide a reason on why you would like to banish this person."
     );
-    return;
-  } else {
-    if (target === message.author.id) {
-      message.channel.send(`You cant ban yourself ${emojis.Error1}`);
-      return;
-    }
-    if (!targett.bannable)
-      return message.reply({
-        content:
-          "You can't ban this user because the bot has not sufficient permissions!!",
-        allowedMentions: { repliedUser: false },
-      });
-
-    async function banUser() {
-      const banMessage = new MessageEmbed()
-        .setTitle("Banned")
-        .setColor(config.Errorcolor)
-        .addField("**Server**", message.guild.name)
-        .addField("**Reason**", reason)
-        .setFooter(config.Footer);
-      client.users.cache.get(target).send({ embeds: [banMessage] });
-
-      const banTrue = new MessageEmbed()
-        .setTitle("Success")
-        .setColor(config.Maincolor)
-        .setDescription(`${Username.username} has been banned!`)
-        .setFooter(config.Footer);
-      message.channel.send({ embeds: [banTrue] });
-
-      targett.ban({ reason: reason });
-    }
-    GuildSettings.findOne({ gid: message.guild.id }, (err, data) => {
-      if (data) {
-        if (data.logchannel) {
-          let channel = data.logchannel;
-          const logMessage = new MessageEmbed()
-            .setTitle("Ban")
-            .setColor(config.Maincolor)
-            .addField("**Username**", Username.tag)
-            .addField("**Reason**", reason)
-            .addField("**Data**", `${month}/${day}/${year}`)
-            .setFooter(`User ID: ${target}`);
-          client.channels.cache.get(channel).send({ embeds: [logMessage] });
-        }
+  let Username = await client.users.fetch(mem.id);
+  if (message.author.id === mem.id)
+    return message.channel.send("Why would you want to ban yourself?");
+  if (!mem.bannable)
+    return message.channel.send(
+      "I do not have the permissions to ban this user."
+    );
+  const banembed = new MessageEmbed()
+    .setTitle("Banned")
+    .setColor(config.Maincolor)
+    .addFields(
+      {
+        name: "**Server**",
+        value: `${message.guild.name}`,
+      },
+      {
+        name: "**Reason**",
+        value: `${reason}`,
+      },
+      {
+        name: "**Moderator**",
+        value: `${message.author.username}`,
       }
-    });
-    banUser();
+    );
+  await client.users.cache.get(mem.id).send({ embeds: [banembed] });
+  yer();
+  let msg = new MessageEmbed()
+    .setTitle("Success")
+    .setColor(config.Maincolor)
+    .setDescription(`${Username.username} has been banned!`)
+    .setFooter(config.Footer);
+  message.channel.send({ embeds: [msg] });
+  await mem.ban({ reason: reason });
+
+  async function yer() {
+    if (data) {
+      if (data.logchannel) {
+        const yes = new MessageEmbed()
+          .setColor(config.Maincolor)
+          .setTimestamp()
+          .setFooter(`Victim's id: ${mem.id}`)
+          .addFields(
+            {
+              name: "**Moderation Type**",
+              value: "Ban",
+            },
+            {
+              name: "**Victim**",
+              value: Username.username,
+            },
+            {
+              name: "**Punisher**",
+              value: message.author.username,
+            },
+            {
+              name: "**Reason**",
+              value: reason,
+            }
+          );
+        client.channels.cache.get(data.logchannel).send({ embeds: [yes] });
+      }
+    }
   }
 };
 
 module.exports.data = {
   name: "ban",
-  aliases: ["elim", "test"],
-  description: "A command that allows you to ban a users.",
+  aliases: [""],
+  description: "Bannish a user at an instant!",
   params: "ban @user reason",
   type: "Moderation",
 };

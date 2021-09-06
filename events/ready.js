@@ -5,8 +5,8 @@ client.on("ready", async () => {
   console.log("Bot online");
   setInterval(() => {
     const statuses = [
-      `Version: ${version}`,
       `${client.guilds.cache.size} servers`,
+      `Hosted by Delk | delk.cf`,
     ];
 
     const status = statuses[Math.floor(Math.random() * statuses.length)];

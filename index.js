@@ -1,7 +1,7 @@
 /* //////////////////////////////////////////////////////////////////////////////// */
 /*                                                                                  */
-/*                                Vedux Development                                 */
-/*                       Maintained by, Ducksquaddd and bqini                       */
+/*                             Vedux Development                                    */
+/*                       Maintained by, Ducksquaddd                                 */
 /*                                                                                  */
 /* //////////////////////////////////////////////////////////////////////////////// */
 
@@ -33,13 +33,7 @@ client.commands = new Discord.Collection(); // For command names such as invite,
 client.aliases = new Discord.Collection(); // For aliases names such as inv, b, unb
 
 /* Command folders */
-let commandFolders = [
-  "Moderation",
-  "Veconomy",
-  "Utils",
-  "joinstuff",
-  "verifystuff",
-]; // This bot uses mutiple folders to orginize our commands and this is how we tell the code what folders to look for commands in.
+let commandFolders = ["Moderation", "Utils", "joinstuff", "verifystuff"]; // This bot uses mutiple folders to orginize our commands and this is how we tell the code what folders to look for commands in.
 
 /* Ill fix this shit later */
 

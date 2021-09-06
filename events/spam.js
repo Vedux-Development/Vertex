@@ -2,12 +2,11 @@ const GuildSettings = require("../models/settings");
 const Spamsettings = require("../models/spamSchema");
 const { client, config } = require("../index");
 
-/* Vertex's spam filter V1 is (mostley) made by Anson the Developer */
-/* https://youtu.be/xzMiszeTEiI */
-
 const usersMap = new Map();
 
 client.on("messageCreate", async (message) => {
+  if (message.author.bot) return; // Ignores the message if a bot sent it
+  if (message.channel.type === "dm") return; // Checks if the command is run in a dm and if it is it returns nothing.
   let data = await Spamsettings.findOne({
     gid: message.guild.id,
   });

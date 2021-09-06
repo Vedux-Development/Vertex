@@ -15,6 +15,7 @@ client.on("guildMemberAdd", async (client, member, message) => {
         if (data.welcomechannel) {
           var Welcomemessage = new discord.MessageEmbed()
             .setTitle(`Welcome, ${member.user.username}`)
+            .setFooter(`Members: ${member.guild.memberCount}`)
             .setColor(config.Maincolor)
             .setDescription(data.welcomechannelText);
           client.channels.cache.get(data.welcomechannel).send(Welcomemessage);

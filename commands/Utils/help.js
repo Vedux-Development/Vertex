@@ -46,7 +46,7 @@ module.exports.run = async (client, message, args) => {
   const commands = client.commands.get(cmdSearch);
   if (commands) {
     let yesAliases;
-    if (commands.data.aliases >= 1) {
+    if (commands.data.aliases.length >= 2) {
       yesAliases = commands.data.aliases.join(", ");
     } else {
       yesAliases = "None";
