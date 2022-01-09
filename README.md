@@ -5,8 +5,10 @@ To get help join the [Discord sevrer](https://discord.gg/EcdPApY8Kd)
 
 # Future of Vertex
 
-Due to Discords choices with their api I (Ducksquaddd) will stop working on Vertex. Discord is trying to force developers to switch to slash commands by making the message intent privileged.<br>
-I get that I can switch to slash commands. However the bot still reads messages for things such as the spam filter. I work on Vertex in my free time and for free I dont want to/feel like rewriting vertex<br>for the soon to come api changes. I have published all the code that I have been working on for the version one update that was supposed to be released. If you do decide to use it.
+~~Due to Discords choices with their api I (Ducksquaddd) will stop working on Vertex. Discord is trying to force developers to switch to slash commands by making the message intent privileged.<br>
+I get that I can switch to slash commands. However the bot still reads messages for things such as the spam filter. I work on Vertex in my free time and for free I dont want to/feel like rewriting vertex<br>for the soon to come api changes. I have published all the code that I have been working on for the version one update that was supposed to be released. If you do decide to use it.~~
+
+The bot is currently being remade and will hopefully re release again
 
 # Known bugs
 
